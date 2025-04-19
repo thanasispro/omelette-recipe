@@ -1,0 +1,281 @@
+@import './variables.css';
+
+/* Body */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    gap: var(--spacing-100); /* 0.5rem (8px) */
+    background: var(--color-stone-100);
+    margin: 0;
+    min-height: 100vh;
+    overflow-y: auto;
+}
+
+/* Main Content */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--spacing-500); /* 2.5rem (40px) */
+    gap: var(--spacing-500);  /* Applied only on larger screens */
+    width: 100%;
+    max-width: 46rem; /* 736px */
+    height: auto;
+    background: var(--color-white);
+    border-radius: var(--spacing-400); /* 2rem (32px) */
+    overflow-wrap: anywhere;
+    word-wrap: break-word;
+    word-break: break-word;
+    box-sizing: border-box;
+}
+
+/* For screens 640px and larger */
+@media (min-width: 640px) {
+    main {
+        margin-top: var(--spacing-1600); /* 8rem (128px) */
+    }
+}
+
+/* Header Image */
+header img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--spacing-200); /* 1rem (16px) */
+    object-fit: cover;
+}
+
+/* Wrapper */
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+    gap: var(--spacing-400); /* 2rem (32px) */
+    width: 100%;
+    max-width: 41rem; /* 656px */
+    height: auto;
+}
+
+/* Common styles for all sections */
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-200); /* 1rem (16px) */
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+}
+
+/* Remove Bottom Margin for Last List Items */
+.preparation ul li:last-child,
+.ingredients ul li:last-child,
+.instructions ol li:last-child {
+    margin-bottom: 0;
+}
+
+/* Title Section */
+.title-section {
+    padding: 0;
+    gap: var(--spacing-300); /* 1.5rem (24px) */
+}
+
+.title-section h1 {
+    color: var(--color-stone-900);
+    margin: 0;
+}
+
+.title-section p {
+    color: var(--color-stone-600);
+    margin: 0;
+    line-height: 1.5;
+    word-wrap: break-word;
+    overflow-wrap: anywhere;
+}
+
+/* Preparation and Ingredients Shared Styles */
+.preparation,
+.ingredients {
+    color: var(--color-stone-600);
+}
+
+.preparation {
+    padding: var(--spacing-300); /* 1.5rem (24px) */
+    background: var(--color-rose-50);
+    border-radius: var(--spacing-200); /* 1rem (16px) */
+}
+
+.preparation h3 {
+    color: var(--color-rose-800);
+}
+
+.ingredients {
+    gap: var(--spacing-300); /* 1.5rem (24px) */
+}
+
+.ingredients h2 {
+    color: var(--color-brown-800);
+}
+
+/* Shared List Styles */
+.preparation ul,
+.ingredients ul {
+    padding-left: var(--spacing-100); /* 0.5rem (8px) */
+    margin: 0;
+    list-style: disc;
+    list-style-position: inside;
+}
+
+.preparation ul li,
+.ingredients ul li {
+    margin-bottom: var(--spacing-100); /* 0.5rem (8px) */
+}
+
+.preparation ul li::marker {
+    margin-right: var(--spacing-100); /* 0.5rem (8px) */
+    color: var(--color-rose-800);
+}
+
+.ingredients ul li::marker {
+    margin-right: var(--spacing-100); /* 0.5rem (8px) */
+    color: var(--color-brown-800);
+}
+
+/* Divider Line */
+.line {
+    border: 1px solid var(--color-stone-150);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Instructions Section */
+.instructions {
+    padding: 0;
+    gap: var(--spacing-300); /* 1.5rem (24px) */
+}
+
+.instructions h2 {
+    color: var(--color-brown-800);
+}
+
+.instructions ol {
+    counter-reset: step;
+    padding-left: 0;
+    margin: 0;
+}
+
+.instructions ol li {
+    position: relative;
+    padding-left: calc(var(--spacing-600) + var(--spacing-100)); /* 3rem (48px) + 0.5rem (8px) */
+    margin-bottom: var(--spacing-100); /* 0.5rem (8px) */
+    color: var(--color-stone-600);
+    line-height: 1.5;
+    list-style: none;
+}
+
+.instructions ol li::before {
+    counter-increment: step;
+    content: counter(step) ".";
+    position: absolute;
+    left: var(--spacing-100); /* 0.5rem (8px) */
+    top: 0;
+    color: var(--color-brown-800);
+    font-weight: 700;
+}
+
+/* Nutrition Section */
+.nutrition {
+    padding: 0;
+    gap: var(--spacing-300); /* 1.5rem (24px) */
+}
+
+.nutrition h2 {
+    color: var(--color-brown-800);
+}
+
+.nutrition p {
+    color: var(--color-stone-600);
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+}
+
+table td {
+    text-align: left;
+    padding: var(--spacing-150) var(--spacing-400); /* 0.75rem (12px) + 2rem (32px) */
+    border-bottom: 1px solid var(--color-stone-150);
+}
+
+table td:first-child {
+    color: var(--color-stone-600);
+}
+
+table td:last-child {
+    color: var(--color-brown-800);
+}
+
+table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Mobile-first adjustments */
+@media (max-width: 639px) {
+  html, body {
+    overflow-x: hidden;
+  }
+
+  body {
+    padding: 0;
+    gap: 0;
+  }
+
+  main {
+    padding: 0;
+    gap: 0;  /* No gap on small screens */
+    border-radius: 0;
+    max-width: none;
+    width: 100%;
+  }
+
+  .wrapper {
+    padding: var(--spacing-400) var(--spacing-500); /* 2rem (32px) and 2.5rem (40px) */
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  header img {
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+    display: block;
+  }
+}
+
+/* Larger screens (min-width: 640px) */
+@media (min-width: 640px) {
+  .wrapper {
+    padding: 0; /* No padding for larger screens */
+  }
+
+  main {
+    gap: var(--spacing-500); /* 2.5rem (40px) */
+  }
+}
